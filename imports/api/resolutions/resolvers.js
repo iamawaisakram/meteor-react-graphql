@@ -8,11 +8,11 @@ export default {
   },
 
   Mutation: {
-    createResolution() {
-      console.log('Got here');
-      // const ResolutionId = Resolutions.insert({
-      //   name: 'Test Res'
-      // });
+    createResolution(obj, { name }, context) {
+      const ResolutionId = Resolutions.insert({
+        name: name
+      });
+      return Resolutions.findOne(ResolutionId);
     }
   }
 };
